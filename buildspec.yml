@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Docker Hub...
+      - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - REPO_NAME=nodejs-docker-app
+      - IMAGE_TAG=latest
+  build:
+    commands:
+      - echo Building the Docker image...
+      - docker build -t $REPO_NAME:$IMAGE_TAG .
+  post_build:
+    commands:
+      - echo Pushing the Docker image to Docker Hub...
+      - docker tag $REPO_NAME:$IMAGE_TAG $DOCKERHUB_USERNAME/$REPO_NAME:$IMAGE_TAG
+      - docker push $DOCKERHUB_USERNAME/$REPO_NAME:$IMAGE_TAG
+artifacts:
+  files:
+    - '**/*'
