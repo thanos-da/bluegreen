@@ -1,2 +1,2 @@
 #!/bin/bash
-docker pull your-dockerhub-username/nodejs-docker-app:latest
+docker pull thanosda/nodejs-docker-app:latest
