@@ -2,7 +2,6 @@
 {
   "name": "nodejs-docker-app",
   "version": "1.0.0",
-  "newrelic": "latest",
   "description": "A simple Node.js app for Docker and AWS CodeBuild",
   "main": "app.js",
   "scripts": {
@@ -10,5 +9,6 @@
   },
   "dependencies": {
     "express": "^4.18.2"
+    "newrelic": "latest"
   }
 }
