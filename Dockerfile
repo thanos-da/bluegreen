@@ -1,6 +1,7 @@
 # Use official Node.js base image
 FROM node:18-alpine
 
+ENV NEW_RELIC_NO_CONFIG_FILE=true
 # Set working directory
 WORKDIR /app
 
